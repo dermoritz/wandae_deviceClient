@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import com.google.common.base.Strings;
 
 @RunWith(Arquillian.class)
-public class ArquillianClientTest {
+public abstract class ArquillianClientTest {
 
     
     @Deployment(testable = false)
