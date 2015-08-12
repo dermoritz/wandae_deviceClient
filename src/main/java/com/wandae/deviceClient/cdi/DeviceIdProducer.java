@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import javax.enterprise.inject.Produces;
 
-public class DeviceIdProvider {
+public class DeviceIdProducer {
 
 	@Produces
 	@DeviceId
