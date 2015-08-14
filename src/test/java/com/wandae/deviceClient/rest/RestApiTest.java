@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.google.common.base.Strings;
 import com.jayway.restassured.RestAssured;
 import com.wandae.deviceClient.ArquillianClientTest;
-import com.wandae.deviceClient.device.DeviceInfo;
+import com.wandae.deviceClient.device.DeviceInfoImpl;
 
 public class RestApiTest extends ArquillianClientTest {
     /**
@@ -26,10 +26,10 @@ public class RestApiTest extends ArquillianClientTest {
     @Test
     public void aliveTest() throws MalformedURLException {
         URL aliveUrl = new URL(base, ALIVE_PATH);
-        DeviceInfo deviceInfo = RestAssured.given().then().contentType(MediaType.APPLICATION_JSON)
+        DeviceInfoImpl deviceInfoImpl = RestAssured.given().then().contentType(MediaType.APPLICATION_JSON)
                                            .statusCode(Status.OK.getStatusCode()).when().get(aliveUrl).body()
-                                           .as(DeviceInfo.class);
-        assertNotNull(deviceInfo);
-        assertFalse(Strings.isNullOrEmpty(deviceInfo.getDeviceId()));
+                                           .as(DeviceInfoImpl.class);
+        assertNotNull(deviceInfoImpl);
+        assertFalse(Strings.isNullOrEmpty(deviceInfoImpl.getDeviceId()));
     }
 }

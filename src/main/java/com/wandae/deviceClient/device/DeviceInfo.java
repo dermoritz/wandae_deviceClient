@@ -2,48 +2,27 @@ package com.wandae.deviceClient.device;
 
 import java.util.Date;
 
-import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
+/**
+ * Created by moritz on 13.08.2015.
+ */
+public interface DeviceInfo  extends IdentifiableDevice{
 
-import com.google.common.base.Strings;
-import com.wandae.deviceClient.cdi.DeviceId;
+    /**
+     *
+     * @return the time stamp of this
+     */
+    Date getTime();
 
-@XmlRootElement(name = "device", namespace = "urn:com.wandae:device")
-public class DeviceInfo implements IdentifiableDevice {
+    /**
+     * Arbitrary data the device provides via it's io interface (sensor reads).
+     * @return raw sensor data as object
+     */
+    Object getSensorData();
 
-	@NotNull
-	@Inject
-	@DeviceId
-	private String deviceId;
-
-	private Date time = new Date();
-
-	@Override
-	public String getDeviceId() {
-		return deviceId;
-	}
-
-	public void setDeviceId(String deviceId) {
-		if (Strings.isNullOrEmpty(deviceId)) {
-			throw new IllegalArgumentException("Device id must not null nor empty.");
-		}
-		this.deviceId = deviceId;
-	}
-
-	/**
-	 * @return the time
-	 */
-	public Date getTime() {
-		return time;
-	}
-
-	/**
-	 * @param time
-	 *            the time to set
-	 */
-	public void setTime(Date time) {
-		this.time = time;
-	}
+    /**
+     * Used to describe the device or general meta data also operation meta data or provided service endpoint.
+     * @return meta data
+     */
+    Object getMetaData();
 
 }

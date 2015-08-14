@@ -19,7 +19,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wandae.deviceClient.ArquillianClientTest;
-import com.wandae.deviceClient.device.DeviceInfo;
+import com.wandae.deviceClient.device.DeviceInfoImpl;
 
 public class CheckWSTest extends ArquillianClientTest {
     private static final String CHECK_PATH = "wscheck";
@@ -38,7 +38,7 @@ public class CheckWSTest extends ArquillianClientTest {
         private ObjectMapper om = new ObjectMapper();
         @OnMessage
         public void onMessage(String message) throws JsonParseException, JsonMappingException, IOException {
-            DeviceInfo value = om.readValue(message, DeviceInfo.class);
+            DeviceInfoImpl value = om.readValue(message, DeviceInfoImpl.class);
             assertNotNull(value);
             assertFalse(Strings.isNullOrEmpty(value.getDeviceId()));
             assertNotNull(value.getTime());

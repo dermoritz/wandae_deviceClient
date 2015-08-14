@@ -17,7 +17,8 @@ public abstract class ArquillianClientTest {
     @Deployment(testable = false)
     public static WebArchive deploy() {
         return ShrinkWrap.create(WebArchive.class, "test.war").addAsResource("META-INF/beans.xml")
-                         .addPackages(true, "com.wandae.deviceClient").addClasses(Strings.class);
+                         .addPackages(true, "com.wandae.deviceClient").addClasses(Strings.class)
+                         .addPackages(true, "com.wandae.common");
     }
 
     @ArquillianResource
