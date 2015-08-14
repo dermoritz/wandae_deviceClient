@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.common.base.Strings;
+import com.wandae.common.device.DeviceInfo;
 import com.wandae.deviceClient.cdi.DeviceId;
 
 @XmlRootElement(name = "device", namespace = "urn:com.wandae:device")

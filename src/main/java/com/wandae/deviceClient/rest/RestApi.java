@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 
-import com.wandae.deviceClient.device.IdentifiableDevice;
+import com.wandae.common.device.IdentifiableDevice;
 
 @Path("/check")
 @RequestScoped

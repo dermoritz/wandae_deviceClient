@@ -10,7 +10,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.wandae.deviceClient.device.IdentifiableDevice;
+import com.wandae.common.device.IdentifiableDevice;
 
 @ServerEndpoint(value = "/wscheck", encoders = {JSONEncoder.class})
 public class CheckWS {
